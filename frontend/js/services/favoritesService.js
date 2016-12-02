@@ -58,7 +58,7 @@
         }
 
         function removeSnippet(snippetId) {
-            favorites.splice(favorties.indexOf(snippetId), 1);
+            favorites.splice(favorites.indexOf(snippetId), 1);
             return $http.delete('/api/favorites/remove/' + snippetId).then(function (response) {
                 $log.info(response);
             });

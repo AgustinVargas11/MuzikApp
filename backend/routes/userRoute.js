@@ -68,7 +68,7 @@ router.route('/recentsearch')
     .delete(function (req, res) {
         User.findById(req.user._id, function (err, user) {
             if (err) return res.status(500).send(err);
-            user.recentSearches = null;
+            user.recentSearches.length = 0;
             user.save(function (err) {
                 if (err) return res.send(err);
                 res.send({success: true, deleted: true});
