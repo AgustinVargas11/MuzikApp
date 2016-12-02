@@ -8,6 +8,7 @@
     favoriteservice.$inject = ['$http', '$log', 'authservice'];
 
     function favoriteservice($http, $log, authservice) {
+        var fs = this;
         var favorites;
         var isLoggedIn;
 
@@ -49,7 +50,7 @@
 
         function init() {
             authservice.authenticate().then(function (response) {
-                isLoggedIn = response;
+                isLoggedIn = fs.isLoggedIn = response;
 
                 if (isLoggedIn)
                     getFavoriteIds();

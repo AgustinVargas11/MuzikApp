@@ -5,9 +5,9 @@
         .module('MediaApp')
         .factory('playservice', playservice);
 
-    playservice.$inject = ['$timeout', 'favoriteservice'];
+    playservice.$inject = ['$timeout', 'favoriteservice', 'authservice'];
 
-    function playservice($timeout, favoriteservice) {
+    function playservice($timeout, favoriteservice, authservice) {
         var currentlyPlaying = null;
 
         var playService = {
@@ -31,7 +31,9 @@
             if (currentlyPlaying !== null)
                 stopPlaying(currentlyPlaying, currentlyPlaying.mediaSnippet);
 
-            checkFavoriteStatus(mediaObj);
+            if (favoriteservice.isLoggedIn)
+                checkFavoriteStatus(mediaObj);
+
             $timeout(play, 150);
             mediaObj.play = true;
             currentlyPlaying = mediaObj;
