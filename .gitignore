@@ -1,0 +1,4 @@
+.DS_Store
+.idea/
+backend/config.js
+node_modules

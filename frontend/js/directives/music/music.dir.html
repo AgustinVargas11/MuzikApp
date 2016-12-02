@@ -1,0 +1,24 @@
+<div class="col-xs-6  col-sm-3 col-md-2 col-lg-2" ng-repeat="song in songs"
+     ng-show="filter === 'all' || filter === 'songs'">
+    <a class="thumbnail" ng-class="{'playing': song.play, 'inactive': !song.play}" ng-click="togglePlay(song, $index)">
+        <audio ng-src="{{::song.previewUrl | trustedUrl}}" id="{{::$index}}" ui-event="{ ended : 'togglePlay(song, $index)' }"></audio>
+
+        <img ng-src="{{::song.artworkUrl100 | imgFilter : 250}}" alt="album artwork">
+
+        <h6>{{song.trackName | limitTo: 16}}</h6>
+
+        <a class="label label-primary" ng-href="{{::song.trackViewUrl}}" target="_blank"
+           ng-class="{'active': song.play}">Buy</a>
+
+        <span class="badge" uib-popover="Explicit" popover-trigger="'mouseenter'"
+              ng-if="song.contentAdvisoryRating === 'Explicit' || song.explicitness === 'Explicit'"><small>M</small></span>
+
+        <span ng-if="loggedIn && !song.favorite" ng-hide="!song.play" class="glyphicon glyphicon-star" ng-class="{'favorited': song.favorited}"
+              ng-click="addToFavorites(song); song.favorited=true"></span>
+
+        <span ng-if="loggedIn && song.favorite" ng-hide="!song.play" class="glyphicon glyphicon-remove"
+              ng-click="removeFromFavorites({songs: songs, index: $index}); song.favorited=!song.favorited"></span>
+
+        <a class="glyphicon" ng-class="{'glyphicon-play': !song.play, 'glyphicon-pause': song.play, 'active': song.play }" ng-click="togglePlay(song, $index);"></a>
+    </a>
+</div>

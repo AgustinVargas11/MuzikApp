@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Muzik</a>
+        </div>
+        <div class="pull-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden-xs hidden-sm"><a ng-href="#/search">Search</a></li>
+                <li ng-if="nav.isLoggedIn" class="hidden-xs hidden-sm"><a ng-href="#/myfavs">My Favorites</a></li>
+                <li ng-if="nav.isLoggedIn" class="hidden-xs hidden-sm"><a ng-href="#/profile">Profile</a></li>
+                <li class="hidden-xs hidden-sm"><a ng-href="#/info">Info</a></li>
+                <li ng-if="nav.isLoggedIn" class="hidden-xs hidden-sm"><a ng-click="nav.logout()">log out</a></li>
+            </ul>
+        </div>
+        <div uib-dropdown class="pull-right">
+            <a href id="simple-dropdown" uib-dropdown-toggle>
+                <span class="glyphicon glyphicon-th-list hidden-md hidden-lg"></span> </a>
+            <ul class="dropdown-menu  hidden-md hidden-lg" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li class="text-center"><a ng-href="#/search">Search</a></li>
+                <li ng-if="nav.isLoggedIn" class="text-center"><a ng-href="#/myfavs">My Favorites</a></li>
+                <li ng-if="nav.isLoggedIn" class="text-center"><a ng-href="#/profile">Profile</a></li>
+                <li class="text-center"><a ng-href="#/info">Info</a></li>
+                <li ng-if="nav.isLoggedIn" class="text-center"><a ng-click="nav.logout()">log out</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /container-fluid -->
+</nav>
