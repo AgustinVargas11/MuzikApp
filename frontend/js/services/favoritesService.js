@@ -11,6 +11,7 @@
         var fs = this;
         var favorites;
         var isLoggedIn;
+        fs.isLoggedIn = false;
 
         init();
 

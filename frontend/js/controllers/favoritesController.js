@@ -22,7 +22,6 @@
         }
 
         function removeFromFavorites(songs, index) {
-            console.log(index);
             favoriteservice.removeSnippet(songs[index]._id);
             songs.splice(index, 1);
             playservice.clearCache();

@@ -30,7 +30,6 @@
             }
 
             function addRecentSearch(history, artist, genre) {
-                console.log(history)
                 var index = null;
                 var query = new Search(artist, genre);
 

@@ -84,8 +84,8 @@
             getAllMedia(null, artist);
             form.reset();
 
-            if (isLoggedIn && mc.songs) {
-                var genre = mc.songs[0].primaryGenreName;
+            if (isLoggedIn) {
+                var genre = mc.songs[0].primaryGenreName || 'unknown';
                 addSearchToRecent(artist, genre);
             }
             search = artist;
