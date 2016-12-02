@@ -85,6 +85,12 @@ li {
     padding-top: 1em;
 }
 
+.title {
+    color: #444;
+    font-family: "Lobster", sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+
 /*==============================
              Modal
 ==============================*/
@@ -571,12 +577,6 @@ li {
            Info
 ==============================*/
 
-.info .title {
-    color: #444;
-    font-family: "Lobster", sans-serif;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
-}
-
 .info p,
 .info form {
     border-radius: .5em;
@@ -593,6 +593,7 @@ li {
 .info p {
     padding: .25em;
 }
+
 /*==============================
            Profile
 ==============================*/
