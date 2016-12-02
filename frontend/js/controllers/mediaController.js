@@ -42,11 +42,12 @@
 
             if (selectedAlbum === album)
                 return;
-            
+
             getSongs(album || artist);
             getAlbums(artist);
             getVideos(artist);
             selectedAlbum = album;
+            return {success: true};
         }
 
         function getRecentSearches() {
@@ -81,13 +82,14 @@
             if (search === artist)
                 return form.reset();
 
-            getAllMedia(null, artist);
-            form.reset();
+            getAllMedia(null, artist).then(function (response) {
+                form.reset();
 
-            if (isLoggedIn) {
-                var genre = mc.songs[0].primaryGenreName || 'unknown';
-                addSearchToRecent(artist, genre);
-            }
+                if (isLoggedIn) {
+                    var genre = mc.songs[0].primaryGenreName || 'unknown';
+                    addSearchToRecent(artist, genre);
+                }
+            });
             search = artist;
         }
     }
