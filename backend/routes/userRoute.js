@@ -36,8 +36,8 @@ router.route('/recentsearch')
 
             var index;
 
-            for (var i = 0, n = recentSearches.length; i < n; i++) {
-                if (recentSearches[i].name === req.body.name) {
+            for (var i = 0, n = user.recentSearches.length; i < n; i++) {
+                if (user.recentSearches[i].name === req.body.name) {
                     index = i;
                     break;
                 }
