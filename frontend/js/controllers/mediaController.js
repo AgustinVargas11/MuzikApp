@@ -39,12 +39,11 @@
         }
 
         function getAllMedia(album, artist) {
-            album = album || artist;
 
             if (selectedAlbum === album)
                 return;
             
-            getSongs(album);
+            getSongs(album || artist);
             getAlbums(artist);
             getVideos(artist);
             selectedAlbum = album;
